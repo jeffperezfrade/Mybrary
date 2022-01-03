@@ -41,15 +41,15 @@ router.post('/', async (req, res) => {
     try {
         // Esperamos al author.save() que termine con el 'await'
         // Esto se hace pq todo en mongoose es asincrono
-        const newAuthor = await new author.save();
+        const newAuthor = await author.save()
         //res.redirect(`authors/${newAuthor.id}`)
-        res.redirect(`authors`);
+        res.redirect(`authors`)
     } catch {
         res.render('authors/new', {
             author: author,
-            errorMessage: `Error creando Autor`
-        });
+            errorMessage: 'Error creando Autor'
+        })
     }
-});
+})
 
 module.exports = router;
